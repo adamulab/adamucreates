@@ -14,11 +14,18 @@ const projects = [
   {
     id: "janiba-ginger",
     title: "Janiba Ginger",
-    desc: "Brand site for organic ginger export and agro-product sales.",
-    tag: "Next.js",
-    details:
-      "E-commerce style product pages and CMS integration for quick updates.",
-    live: "https://janibaginger.com",
+    desc: "Organic ginger processing and export brand with a focus on healthy ginger-based drinks.",
+    tag: "React.js",
+    details: `Janiba Ginger is a Nigerian agribusiness that processes fresh ginger into a range of healthy drinks while also exporting raw ginger internationally.
+  
+  **Overview:** The website serves as both a company profile and an online store, highlighting Janiba’s premium organic ginger products and global export capabilities.
+
+  **Challenges:** The client needed a sleek, responsive, and animated website that could display products in modals, integrate basic e-commerce functionality, and showcase their export operations professionally.
+
+  **Solutions:** Built a React and Next.js-powered site with smooth Framer Motion animations, Tailwind-based responsive design, and product modals for quick views. The site features a CMS-driven product list, SEO optimization, and performance-tuned loading speeds.
+
+  **Results:** The redesign positioned Janiba Ginger as a trusted exporter in the agro-health industry, with improved engagement and streamlined B2B communication.`,
+    live: "https://janibaginger.com/",
   },
   {
     id: "janiba-intercontinental",

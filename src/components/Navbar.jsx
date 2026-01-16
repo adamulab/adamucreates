@@ -1,87 +1,124 @@
-import React from "react";
-import { Home, Briefcase, Code2, MessageSquare } from "lucide-react";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
-import Logo from "../assets/adamu-cat.jpg";
+import { NavLink, Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { useState } from "react";
+
+const navItems = [
+  { name: "Home", path: "/" },
+  { name: "About", path: "/about" },
+  { name: "Projects", path: "/projects" },
+  { name: "Tools", path: "/tools" },
+  { name: "Contact", path: "/contact" },
+];
 
 export default function Navbar() {
+  const [open, setOpen] = useState(false);
+
   return (
-    <header className="sticky top-0 z-40 backdrop-blur-md bg-white/60 border-b border-gray-200">
-      <nav className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
-        <div className="flex items-center gap-4">
-          {/* profile thumbnail placeholder */}
-          <img
-            src={Logo}
-            alt="Adamu"
-            className="w-10 h-10 rounded-full object-cover border-2 border-emerald-200"
-          />
-          <div className="text-2xl font-bold tracking-tight text-emerald-800">
-            AdamuCreates
-          </div>
-        </div>
+    <motion.header
+      initial={{ y: -80, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="fixed top-0 left-0 w-full z-50 bg-slate-950/80 backdrop-blur border-b border-slate-800"
+    >
+      <div className="container mx-auto px-6 h-20 flex items-center justify-between">
+        {/* Logo */}
+        <Link to="/" className="font-bold text-xl tracking-tight">
+          Adamu<span className="text-indigo-400">Creates</span>
+        </Link>
 
-        <div className="hidden sm:flex gap-6 text-sm text-slate-600">
-          <button
-            onClick={() =>
-              document
-                .getElementById("home")
-                .scrollIntoView({ behavior: "smooth" })
-            }
-            className="hover:text-emerald-900 flex items-center gap-1"
-          >
-            <Home size={16} /> Home
-          </button>
-          <button
-            onClick={() =>
-              document
-                .getElementById("naijahomepro")
-                .scrollIntoView({ behavior: "smooth" })
-            }
-            className="hover:text-emerald-900 flex items-center gap-1"
-          >
-            <Briefcase size={16} /> Work
-          </button>
-          <button
-            onClick={() =>
-              document
-                .getElementById("skills")
-                .scrollIntoView({ behavior: "smooth" })
-            }
-            className="hover:text-emerald-900 flex items-center gap-1"
-          >
-            <Code2 size={16} /> Skills
-          </button>
-          <button
-            onClick={() =>
-              document
-                .getElementById("contact")
-                .scrollIntoView({ behavior: "smooth" })
-            }
-            className="hover:text-emerald-900 flex items-center gap-1"
-          >
-            <MessageSquare size={16} /> Hire Me
-          </button>
-        </div>
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex items-center gap-8">
+          {navItems.map((item) => (
+            <NavLink
+              key={item.name}
+              to={item.path}
+              className={({ isActive }) =>
+                `relative text-sm transition ${
+                  isActive
+                    ? "text-indigo-400"
+                    : "text-slate-300 hover:text-white"
+                }`
+              }
+            >
+              {({ isActive }) => (
+                <span>
+                  {item.name}
+                  {isActive && (
+                    <motion.span
+                      layoutId="nav-underline"
+                      className="absolute -bottom-2 left-0 w-full h-[2px] bg-indigo-400"
+                    />
+                  )}
+                </span>
+              )}
+            </NavLink>
+          ))}
+        </nav>
 
-        <div className="flex items-center gap-3">
-          <a
-            href="mailto:you@example.com"
-            className="hidden sm:inline-flex items-center gap-2 px-3 py-2 rounded-full bg-emerald-600 text-white text-sm"
+        {/* Desktop CTA */}
+        <Link
+          to="/hire-me"
+          className="hidden md:inline-flex bg-indigo-500 hover:bg-indigo-600 text-white text-sm px-5 py-2.5 rounded-xl transition"
+        >
+          Hire Me
+        </Link>
+
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setOpen(!open)}
+          className="md:hidden text-slate-200"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-7 h-7"
           >
-            Hire Me
-          </a>
-          <div className="flex gap-3 text-lg text-slate-600">
-            <a aria-label="github" href="#">
-              <FaGithub />
-            </a>
-            <a aria-label="linkedin" href="#">
-              <FaLinkedin />
-            </a>
-            <a aria-label="twitter" href="#">
-              <FaTwitter />
-            </a>
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5"
+            />
+          </svg>
+        </button>
+      </div>
+
+      {/* Mobile Nav Panel */}
+      {open && (
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.25 }}
+          className="md:hidden bg-slate-950 border-t border-slate-800"
+        >
+          <div className="px-6 py-6 flex flex-col gap-6">
+            {navItems.map((item) => (
+              <NavLink
+                key={item.name}
+                to={item.path}
+                onClick={() => setOpen(false)}
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-indigo-400 text-lg"
+                    : "text-slate-300 text-lg"
+                }
+              >
+                {item.name}
+              </NavLink>
+            ))}
+
+            <Link
+              to="/hire-me"
+              onClick={() => setOpen(false)}
+              className="mt-4 inline-flex justify-center bg-indigo-500 hover:bg-indigo-600 text-white px-6 py-3 rounded-xl"
+            >
+              Hire Me
+            </Link>
           </div>
-        </div>
-      </nav>
-    </header>
+        </motion.div>
+      )}
+    </motion.header>
   );
 }

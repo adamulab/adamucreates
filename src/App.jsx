@@ -1,28 +1,26 @@
-import React from "react";
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import Projects from "./components/Projects";
-import Skills from "./components/Skills";
-import HowIWork from "./components/HowIWork";
-import Testimonials from "./components/Testimonials";
-import CTA from "./components/CTA";
-import Footer from "./components/Footer";
-import AboutMe from "./components/AboutMe";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import MainLayout from "./layouts/MainLayout";
+
+import HomePage from "./pages/HomePage";
+import About from "./pages/About";
+import Projects from "./pages/Projects";
+import Tools from "./pages/Tools";
+import Contact from "./pages/Contact";
+import HireMe from "./pages/HireMe";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-emerald-50 text-gray-900 antialiased">
-      <Navbar />
-      <main className="max-w-6xl mx-auto px-6 py-12">
-        <Hero />
-        <AboutMe />
-        <Projects />
-        <Skills />
-        <HowIWork />
-        <Testimonials />
-        <CTA />
-        <Footer />
-      </main>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/tools" element={<Tools />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/hire-me" element={<HireMe />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }

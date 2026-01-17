@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Users, Layers, TrendingUp, ExternalLink } from "lucide-react";
 import CaseStudyModal from "../components/CaseStudyModal";
+import { CASE_STUDY_STATUS } from "../data/caseStudyStatusConfig";
 
 const projects = [
   /* =======================
@@ -11,8 +12,9 @@ const projects = [
     title: "Enterprise Inventory & Payment System",
     context: "Team-based enterprise application",
     status: "in-progress",
+    caseStudyStatus: "testing",
     description:
-      "Collaborated with a cross-functional team to build an enterprise-grade inventory and payment system for a growing business.",
+      "Collaborated with a cross-functional team to build an enterprise-grade inventory and payment system.",
     highlights: [
       "Team collaboration & code reviews",
       "Payment workflow integration",
@@ -22,23 +24,10 @@ const projects = [
     tags: ["Production", "Team Project", "Enterprise"],
   },
   {
-    title: "Patient Records Management System",
-    context: "Healthcare Information System",
-    status: "in-progress",
-    description:
-      "Developed a web-based system to help healthcare facilities manage patient records efficiently.",
-    highlights: [
-      "Patient records & registration",
-      "Medical history tracking",
-      "Role-based staff access",
-      "Data-focused usability",
-    ],
-    tags: ["Healthcare", "Web Application"],
-  },
-  {
     title: "NaijaHomePro",
     context: "Real Estate Management System (Team Project)",
     status: "in-progress",
+    caseStudyStatus: "development",
     description:
       "Collaborated with a development team to build a real estate management system designed to support property listings.",
     highlights: [
@@ -48,6 +37,21 @@ const projects = [
       "Enterprise system design",
     ],
     tags: ["Real Estate", "Team Project", "Enterprise"],
+  },
+  {
+    title: "Patient Records Management System",
+    context: "Healthcare Information System",
+    status: "in-progress",
+    caseStudyStatus: "requirements",
+    description:
+      "Developed a web-based system to help healthcare facilities manage patient records efficiently.",
+    highlights: [
+      "Patient records & registration",
+      "Medical history tracking",
+      "Role-based staff access",
+      "Data-focused usability",
+    ],
+    tags: ["Healthcare", "Web Application"],
   },
 
   /* =======================
@@ -249,22 +253,32 @@ function ProjectCard({ project, index }) {
               ))}
             </div>
 
+            <div>
+              {project.status === "in-progress" && (
+                <span className="text-xs px-3 py-1 rounded-full bg-slate-800 text-slate-300">
+                  {CASE_STUDY_STATUS[project.caseStudyStatus].label}
+                </span>
+              )}
+            </div>
+
             {/* CTA */}
             {project.status === "completed" ? (
               <a
                 href={project.caseStudyLink}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-4 inline-flex items-center gap-2 text-sm text-indigo-400 hover:text-indigo-300"
+                className="mt-4 inline-flex items-center justify-end gap-2 text-sm text-indigo-400 hover:text-indigo-300"
               >
                 View Case Study <ExternalLink size={14} />
               </a>
             ) : (
               <button
                 onClick={handleCaseStudyClick}
-                className="mt-4 inline-flex items-center gap-2 text-sm text-amber-400 hover:text-amber-300"
+                className="mt-4 inline-flex items-center justify-end gap-2 text-sm text-amber-400 hover:text-amber-300"
               >
-                In Final Development <ExternalLink size={14} />
+                Currently in {CASE_STUDY_STATUS[project.caseStudyStatus].label}{" "}
+                Phase
+                <ExternalLink size={14} />
               </button>
             )}
           </div>

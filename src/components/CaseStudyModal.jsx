@@ -1,12 +1,14 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
+import { CASE_STUDY_STATUS } from "../data/caseStudyStatusConfig";
 
 export default function CaseStudyModal({ open, onClose, project }) {
+  const status = CASE_STUDY_STATUS[project.caseStudyStatus];
+
   return (
     <AnimatePresence>
       {open && (
         <>
-          {/* Backdrop */}
           <motion.div
             className="fixed inset-0 bg-black/60 z-40"
             initial={{ opacity: 0 }}
@@ -15,7 +17,6 @@ export default function CaseStudyModal({ open, onClose, project }) {
             onClick={onClose}
           />
 
-          {/* Modal */}
           <motion.div
             className="fixed inset-0 z-50 flex items-center justify-center px-6"
             initial={{ opacity: 0, scale: 0.95, y: 30 }}
@@ -31,23 +32,24 @@ export default function CaseStudyModal({ open, onClose, project }) {
                 <X size={20} />
               </button>
 
-              <h3 className="text-2xl font-semibold mb-4">
-                Case Study in Final Development
+              <span className={`text-sm font-medium ${status.color}`}>
+                {status.label}
+              </span>
+
+              <h3 className="text-2xl font-semibold mt-2 mb-4">
+                {status.title}
               </h3>
 
               <p className="text-slate-400 leading-relaxed mb-6">
-                <strong>{project.title}</strong> is currently in its final
-                development and validation phase. The system is being completed
-                in collaboration with stakeholders and will be published after
-                deployment and internal review.
+                <strong>{project.title}</strong> — {status.message}
               </p>
 
               <div className="bg-slate-800/60 rounded-xl p-4 text-sm text-slate-300">
-                <p className="font-medium mb-2">Scope Highlights</p>
+                <p className="font-medium mb-2">Current Focus</p>
                 <ul className="space-y-1">
-                  <li>• Architecture & core features completed</li>
-                  <li>• Business workflows validated</li>
-                  <li>• Deployment & testing ongoing</li>
+                  <li>• Cross-team collaboration</li>
+                  <li>• Business validation</li>
+                  <li>• Production readiness</li>
                 </ul>
               </div>
 
@@ -55,7 +57,7 @@ export default function CaseStudyModal({ open, onClose, project }) {
                 onClick={onClose}
                 className="mt-6 w-full rounded-full bg-indigo-600 hover:bg-indigo-500 transition px-6 py-3 text-sm font-medium"
               >
-                Got it
+                Close
               </button>
             </div>
           </motion.div>

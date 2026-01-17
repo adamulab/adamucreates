@@ -73,21 +73,6 @@ const projects = [
     caseStudyLink: "https://janibaginger.com/",
   },
   {
-    title: "Noon Capital and Finance Ltd",
-    context: "Financial Services Portfolio Website",
-    status: "completed",
-    description:
-      "Built a clean, professional portfolio website for a financial services firm to communicate their fund management and financial planning offerings.",
-    highlights: [
-      "Clear service and brand positioning",
-      "Professional financial content structure",
-      "Responsive, modern UI",
-      "Client-focused information architecture",
-    ],
-    tags: ["Client Project", "Finance", "Portfolio Website"],
-    caseStudyLink: "https://www.nooncapitalandfinance.com/",
-  },
-  {
     title: "Global Stallion Integrated Services Nigeria Ltd",
     context: "Corporate Business Website",
     status: "completed",
@@ -101,6 +86,21 @@ const projects = [
     ],
     tags: ["Client Project", "Corporate", "Business Website"],
     caseStudyLink: "https://gsisnl.com/",
+  },
+  {
+    title: "Noon Capital and Finance Ltd",
+    context: "Financial Services Portfolio Website",
+    status: "completed",
+    description:
+      "Built a clean, professional portfolio website for a financial services firm to communicate their fund management and financial planning offerings.",
+    highlights: [
+      "Clear service and brand positioning",
+      "Professional financial content structure",
+      "Responsive, modern UI",
+      "Client-focused information architecture",
+    ],
+    tags: ["Client Project", "Finance", "Portfolio Website"],
+    caseStudyLink: "https://www.nooncapitalandfinance.com/",
   },
 
   /* =======================

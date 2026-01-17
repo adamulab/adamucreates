@@ -22,8 +22,11 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-6 h-20 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="font-bold text-xl tracking-tight">
-          Adamu<span className="text-indigo-400">Creates</span>
+        <Link to="/" className="font-bold text-xl tracking-tight flex flex-col">
+          <div>
+            Adamu<span className="text-indigo-400">Creates</span>
+          </div>
+          <p className="text-xs text-indigo-400">Stuffs Online</p>
         </Link>
 
         {/* Desktop Nav */}

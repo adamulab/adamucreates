@@ -1,46 +1,78 @@
-import React from "react";
+// src/components/Testimonials.jsx
 import { motion } from "framer-motion";
+import { Quote } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Global Stallion Integrated Services Nig. Ltd.",
-    text: "Adamu delivered an excellent website that elevated our company’s brand image.",
+    name: "Enterprise Product Team",
+    role: "Engineering Lead",
+    quote:
+      "Adamu integrated seamlessly into our team and delivered scalable enterprise features with clarity and ownership.",
   },
   {
-    name: "Janiba Ginger",
-    text: "Professional, responsive, and creative — the project exceeded expectations.",
+    name: "Janiba Ginger Ltd",
+    role: "Agro-Allied Business Client",
+    quote:
+      "Adamu translated our business needs into a practical digital solution that improved our distribution and customer order workflow.",
   },
   {
-    name: "Five Star College of Health Technology",
-    text: "Our online presence transformed — everything works perfectly!",
+    name: "Noon Capital and Finance Ltd",
+    role: "Financial Services Client",
+    quote:
+      "Adamu delivered a reliable website that promotes our financial operations with professionalism and attention to detail.",
+  },
+  {
+    name: "Global Stallion Integrated Services Nigeria Ltd",
+    role: "Business Solutions Client",
+    quote:
+      "Adamu delivered a website that perfectly describes our operational goals and business needs.",
   },
 ];
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="py-16">
-      <motion.h2
-        initial={{ opacity: 0, y: 20 }}
+    <section className="container mx-auto px-6 py-20">
+      {/* Section Header */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="text-2xl font-semibold text-center"
+        className="max-w-2xl mb-14"
       >
-        Testimonials
-      </motion.h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          Trusted by Teams & Clients
+        </h2>
+        <p className="text-slate-400 text-lg">
+          Feedback from professionals I’ve collaborated with across enterprise
+          and growing businesses.
+        </p>
+      </motion.div>
 
-      <div className="mt-8 grid md:grid-cols-3 gap-6">
-        {testimonials.map((t, i) => (
+      {/* Testimonials Grid */}
+      <div className="grid md:grid-cols-3 gap-8">
+        {testimonials.map((item, index) => (
           <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 40 }}
+            key={item.name}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: i * 0.12 }}
-            className="bg-white p-6 rounded-2xl shadow-md"
+            transition={{ duration: 0.4, delay: index * 0.1 }}
+            className="relative bg-slate-900/70 border border-slate-800 rounded-3xl p-8"
           >
-            <p className="italic text-slate-700 mb-4">“{t.text}”</p>
-            <h4 className="font-semibold text-emerald-800">{t.name}</h4>
+            <Quote
+              size={28}
+              className="absolute top-6 right-6 text-indigo-400 opacity-20"
+            />
+
+            <p className="text-slate-300 leading-relaxed mb-6">
+              “{item.quote}”
+            </p>
+
+            <div className="border-t border-slate-800 pt-4">
+              <p className="font-semibold text-white text-sm">{item.name}</p>
+              <p className="text-xs text-slate-400">{item.role}</p>
+            </div>
           </motion.div>
         ))}
       </div>

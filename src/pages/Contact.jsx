@@ -31,14 +31,14 @@ export default function Contact() {
         <ContactCard
           icon={<Mail size={24} />}
           title="Email"
-          text="adamu@example.com"
-          link="mailto:adamu@example.com"
+          text="ingo@adamucreates.online"
+          link="mailto:adamuabu@gmail.com"
         />
         <ContactCard
           icon={<Phone size={24} />}
           title="Phone"
-          text="+234 000 0000"
-          link="tel:+2340000000"
+          text="+234 803 442 3548"
+          link="tel:+2348034423548"
         />
         <ContactCard
           icon={<MapPin size={24} />}
@@ -48,20 +48,20 @@ export default function Contact() {
         <ContactCard
           icon={<Linkedin size={24} />}
           title="LinkedIn"
-          text="linkedin.com/in/adamudev"
-          link="https://linkedin.com/in/adamudev"
+          text="linkedin.com/in/adamucreates"
+          link="https://linkedin.com/in/adamucreates"
         />
         <ContactCard
           icon={<Twitter size={24} />}
           title="X (Twitter)"
-          text="@adamudev"
-          link="https://twitter.com/adamudev"
+          text="@adamucreates"
+          link="https://x.com/adamucreates"
         />
         <ContactCard
           icon={<Instagram size={24} />}
           title="Instagram"
-          text="@adamudev"
-          link="https://instagram.com/adamudev"
+          text="@adamucreates"
+          link="https://instagram.com/adamucreates"
         />
       </div>
 

@@ -7,25 +7,25 @@ const testimonials = [
     name: "Enterprise Product Team",
     role: "Engineering Lead",
     quote:
-      "Adamu integrated seamlessly into our team and delivered scalable enterprise features with clarity and ownership.",
+      "He integrated seamlessly into our team and consistently delivered scalable enterprise features with clarity and strong ownership.",
   },
   {
     name: "Janiba Ginger Ltd",
     role: "Agro-Allied Business Client",
     quote:
-      "Adamu translated our business needs into a practical digital solution that improved our distribution and customer order workflow.",
+      "Our business needs were translated into a practical digital solution that significantly improved our distribution and customer order workflow.",
   },
   {
     name: "Noon Capital and Finance Ltd",
     role: "Financial Services Client",
     quote:
-      "Adamu delivered a reliable website that promotes our financial operations with professionalism and attention to detail.",
+      "The website delivered was reliable, professional, and clearly communicates our financial services with great attention to detail.",
   },
   {
     name: "Global Stallion Integrated Services Nigeria Ltd",
     role: "Business Solutions Client",
     quote:
-      "Adamu delivered a website that perfectly describes our operational goals and business needs.",
+      "The website clearly communicates our operational goals and business offerings in a simple and professional way.",
   },
 ];
 

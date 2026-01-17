@@ -16,8 +16,11 @@ export default function Footer() {
       <div className="container mx-auto px-6 py-16 grid md:grid-cols-3 gap-8">
         {/* Branding & Trust */}
         <div className="space-y-4">
-          <h2 className="text-2xl font-bold text-white">
-            Adamu<span className="text-indigo-400">Creates</span>
+          <h2 className="text-2xl font-bold text-white flex flex-col">
+            <div>
+              Adamu<span className="text-indigo-400">Creates</span>
+            </div>
+            <p className="text-xs text-indigo-400">Stuffs Online</p>
           </h2>
           <p className="text-slate-400">
             Building modern, scalable digital products with focus, clarity, and
@@ -76,7 +79,7 @@ export default function Footer() {
           <h3 className="font-semibold text-white mb-2">Connect</h3>
           <div className="flex items-center gap-4">
             <a
-              href="https://facebook.com/adamuabu"
+              href="https://facebook.com/adamucreates"
               target="_blank"
               rel="noreferrer"
               className="hover:text-white"

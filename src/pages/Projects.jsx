@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Users, Layers, TrendingUp, ExternalLink } from "lucide-react";
+import CaseStudyModal from "../components/CaseStudyModal";
 
 const projects = [
   /* =======================
@@ -8,8 +10,9 @@ const projects = [
   {
     title: "Enterprise Inventory & Payment System",
     context: "Team-based enterprise application",
+    status: "in-progress",
     description:
-      "Collaborated with a cross-functional team to build an enterprise-grade inventory and payment system for a growing business. The platform supports real-time stock tracking, secure payments, and role-based access.",
+      "Collaborated with a cross-functional team to build an enterprise-grade inventory and payment system for a growing business.",
     highlights: [
       "Team collaboration & code reviews",
       "Payment workflow integration",
@@ -17,34 +20,34 @@ const projects = [
       "Business-focused reporting",
     ],
     tags: ["Production", "Team Project", "Enterprise"],
-    caseStudyLink: "#naijahomepro",
-  },
-  {
-    title: "NaijaHomePro",
-    context: "Real Estate Management System (Team Project)",
-    description:
-      "Collaborated with a development team to build a real estate management system designed to support property listings, agent workflows, and administrative oversight.",
-    highlights: [
-      "Team-based development & collaboration",
-      "Property listings and management workflows",
-      "Agent, landlord, and tenant structure",
-      "Business-oriented system design",
-    ],
-    tags: ["Real Estate", "Team Project", "Enterprise"],
-    caseStudyLink: "#naijahomepro",
   },
   {
     title: "Patient Records Management System",
     context: "Healthcare Information System",
+    status: "in-progress",
     description:
-      "Developed a web-based patient records management system aimed at helping small healthcare facilities organize and access patient information more efficiently.",
+      "Developed a web-based system to help healthcare facilities manage patient records efficiently.",
     highlights: [
-      "Patient registration and record management",
-      "Structured medical history storage",
-      "Role-based access for staff",
-      "Focus on data organization and usability",
+      "Patient records & registration",
+      "Medical history tracking",
+      "Role-based staff access",
+      "Data-focused usability",
     ],
-    tags: ["Healthcare", "Information System", "Web Application"],
+    tags: ["Healthcare", "Web Application"],
+  },
+  {
+    title: "NaijaHomePro",
+    context: "Real Estate Management System (Team Project)",
+    status: "in-progress",
+    description:
+      "Collaborated with a development team to build a real estate management system designed to support property listings.",
+    highlights: [
+      "Team-based development",
+      "Property & agent workflows",
+      "Admin oversight",
+      "Enterprise system design",
+    ],
+    tags: ["Real Estate", "Team Project", "Enterprise"],
   },
 
   /* =======================
@@ -53,6 +56,7 @@ const projects = [
   {
     title: "Janiba Ginger Ltd",
     context: "Agro-Allied Business Website",
+    status: "completed",
     description:
       "Designed and developed a professional business website for an agro-allied company specializing in ginger production and processing, with a custom product ordering experience.",
     highlights: [
@@ -67,6 +71,7 @@ const projects = [
   {
     title: "Noon Capital and Finance Ltd",
     context: "Financial Services Portfolio Website",
+    status: "completed",
     description:
       "Built a clean, professional portfolio website for a financial services firm to communicate their fund management and financial planning offerings.",
     highlights: [
@@ -81,6 +86,7 @@ const projects = [
   {
     title: "Global Stallion Integrated Services Nigeria Ltd",
     context: "Corporate Business Website",
+    status: "completed",
     description:
       "Developed a corporate website for a diversified business services company to establish online presence and communicate their service offerings clearly.",
     highlights: [
@@ -99,6 +105,7 @@ const projects = [
   {
     title: "Gidaje360",
     context: "Property Management App",
+    status: "completed",
     description:
       "Built a property management system. A landlord centered property listings workflow.",
     highlights: [
@@ -112,6 +119,7 @@ const projects = [
   {
     title: "AdamuCreates – Developers Quiz Game",
     context: "Personal Project",
+    status: "completed",
     description:
       "A quiz-based web application designed to help developers test and improve their programming knowledge in an interactive way.",
     highlights: [
@@ -126,6 +134,7 @@ const projects = [
   {
     title: "Weather App",
     context: "Mini Project",
+    status: "completed",
     description:
       "A simple weather application that fetches real-time weather data based on user location or search input.",
     highlights: [
@@ -140,6 +149,7 @@ const projects = [
   {
     title: "To-Do List App",
     context: "Mini Project",
+    status: "completed",
     description:
       "A task management application focused on simplicity, helping users organize daily tasks efficiently.",
     highlights: [
@@ -183,70 +193,88 @@ export default function Projects() {
 }
 
 function ProjectCard({ project, index }) {
+  const [open, setOpen] = useState(false);
+
+  const handleCaseStudyClick = () => {
+    if (project.status === "in-progress") {
+      setOpen(true);
+    }
+  };
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.4, delay: index * 0.05 }}
-      className="bg-slate-900/70 border border-slate-800 rounded-3xl p-8"
-    >
-      <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
-        <div className="max-w-2xl">
-          <p className="text-sm text-indigo-400 mb-2">{project.context}</p>
-          <h2 className="text-2xl font-semibold mb-4">{project.title}</h2>
-          <p className="text-slate-400 leading-relaxed mb-6">
-            {project.description}
-          </p>
+    <>
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.4, delay: index * 0.05 }}
+        className="bg-slate-900/70 border border-slate-800 rounded-3xl p-8"
+      >
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+          <div className="max-w-2xl">
+            <p className="text-sm text-indigo-400 mb-2">{project.context}</p>
+            <h2 className="text-2xl font-semibold mb-4">{project.title}</h2>
+            <p className="text-slate-400 leading-relaxed mb-6">
+              {project.description}
+            </p>
 
-          <ul className="grid sm:grid-cols-2 gap-3 text-sm text-slate-400">
-            {project.highlights.map((item) => (
-              <li key={item} className="flex items-start gap-2">
-                <Layers size={16} className="mt-1 text-indigo-400" />
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Meta */}
-        <div className="flex flex-col gap-4 min-w-[220px]">
-          <div className="flex items-center gap-3 text-sm text-slate-300">
-            <Users size={18} className="text-indigo-400" /> Team Collaboration
-          </div>
-          <div className="flex items-center gap-3 text-sm text-slate-300">
-            <TrendingUp size={18} className="text-indigo-400" /> Business Impact
-            Focused
+            <ul className="grid sm:grid-cols-2 gap-3 text-sm text-slate-400">
+              {project.highlights.map((item) => (
+                <li key={item} className="flex items-start gap-2">
+                  <Layers size={16} className="mt-1 text-indigo-400" />
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <div className="flex flex-wrap gap-2 mt-2">
-            {project.tags.map((tag) => (
-              <span
-                key={tag}
-                className="text-xs px-3 py-1 rounded-full bg-slate-800 text-slate-300"
+          {/* Meta */}
+          <div className="flex flex-col gap-4 min-w-[220px]">
+            <div className="flex items-center gap-3 text-sm text-slate-300">
+              <Users size={18} className="text-indigo-400" /> Team Collaboration
+            </div>
+            <div className="flex items-center gap-3 text-sm text-slate-300">
+              <TrendingUp size={18} className="text-indigo-400" /> Business
+              Impact Focused
+            </div>
+
+            <div className="flex flex-wrap gap-2 mt-2">
+              {project.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="text-xs px-3 py-1 rounded-full bg-slate-800 text-slate-300"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+
+            {/* CTA */}
+            {project.status === "completed" ? (
+              <a
+                href={project.caseStudyLink}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-4 inline-flex items-center gap-2 text-sm text-indigo-400 hover:text-indigo-300"
               >
-                {tag}
-              </span>
-            ))}
+                View Case Study <ExternalLink size={14} />
+              </a>
+            ) : (
+              <button
+                onClick={handleCaseStudyClick}
+                className="mt-4 inline-flex items-center gap-2 text-sm text-amber-400 hover:text-amber-300"
+              >
+                In Final Development <ExternalLink size={14} />
+              </button>
+            )}
           </div>
-
-          {/* Fixed Case Study Link */}
-          {project.caseStudyLink ? (
-            <a
-              href={project.caseStudyLink}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-4 inline-flex items-center gap-2 text-sm text-indigo-400 hover:text-indigo-300"
-            >
-              View Case Study <ExternalLink size={14} />
-            </a>
-          ) : (
-            <span className="mt-4 inline-flex items-center gap-2 text-sm text-indigo-400 opacity-50 cursor-not-allowed">
-              Case Study Coming Soon <ExternalLink size={14} />
-            </span>
-          )}
         </div>
-      </div>
-    </motion.div>
+      </motion.div>
+      <CaseStudyModal
+        open={open}
+        onClose={() => setOpen(false)}
+        project={project}
+      />
+    </>
   );
 }

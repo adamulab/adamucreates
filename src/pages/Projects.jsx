@@ -2,6 +2,9 @@ import { motion } from "framer-motion";
 import { Users, Layers, TrendingUp, ExternalLink } from "lucide-react";
 
 const projects = [
+  /* =======================
+     ENTERPRISE / TEAM WORK
+  ======================= */
   {
     title: "Enterprise Inventory & Payment System",
     context: "Team-based enterprise application",
@@ -9,107 +12,144 @@ const projects = [
       "Collaborated with a cross-functional team to build an enterprise-grade inventory and payment system for a growing business. The platform supports real-time stock tracking, secure payments, and role-based access.",
     highlights: [
       "Team collaboration & code reviews",
-      "Scalable backend architecture",
       "Payment workflow integration",
+      "Scalable backend architecture",
       "Business-focused reporting",
     ],
-    tags: ["Enterprise", "Team Project", "Production"],
-  },
-  {
-    title: "Health Facility Locator Platform",
-    context: "Collaborative product development",
-    description:
-      "Worked within a small product team to develop a location-based platform that helps users discover nearby health facilities. Focused on frontend architecture, API integration, and usability.",
-    highlights: [
-      "Geolocation & API integration",
-      "Clean, accessible UI",
-      "Collaboration with backend engineers",
-      "Real-world user testing",
-    ],
-    tags: ["Product", "Team Project", "Public Service"],
-  },
-  {
-    title: "Digital Marketing & Content Platform",
-    context: "Growth & content-focused system",
-    description:
-      "Partnered with marketers and designers to build a content-driven platform optimized for SEO, analytics, and conversion. The system supports campaign tracking and performance insights.",
-    highlights: [
-      "SEO-first architecture",
-      "Analytics & performance tracking",
-      "Content workflow optimization",
-      "Marketing team collaboration",
-    ],
-    tags: ["Marketing", "Content", "Growth"],
+    tags: ["Production", "Team Project", "Enterprise"],
+    caseStudyLink: "#naijahomepro",
   },
   {
     title: "NaijaHomePro",
-    context: "Real Estate Management System",
+    context: "Real Estate Management System (Team Project)",
     description:
-      "Developed a comprehensive property management platform helping clients manage listings, tenants, and payments efficiently.",
+      "Collaborated with a development team to build a real estate management system designed to support property listings, agent workflows, and administrative oversight.",
     highlights: [
-      "Team-based development",
-      "Property listing & management",
-      "Agent, Landlord, & Tenant workflows",
-      "Payment & reporting integration",
-    ],
-    tags: ["Enterprise", "Real Estate", "Team Project"],
-    caseStudyLink: "#naijahomepro", // placeholder, can link to a real case study page
-  },
-  {
-    title: "Janiba Ginger",
-    context: "Agro-Allied Business Platform",
-    description:
-      "Worked on a platform for ginger processing and distribution, streamlining farm-to-market operations.",
-    highlights: [
-      "Supply chain tracking",
-      "Production workflow automation",
-      "Market & sales management",
-      "Collaboration with production teams",
-    ],
-    tags: ["Agro-Allied", "Team Project", "Enterprise"],
-    caseStudyLink: "#janibaginger",
-  },
-  {
-    title: "Noon Capital and Finance",
-    context: "Fund Management & Financial Planning",
-    description:
-      "Collaborated on a secure, scalable platform for investment tracking, fund management, and client financial planning.",
-    highlights: [
-      "Secure fund tracking",
-      "Client portfolio management",
-      "Team collaboration",
-      "Reporting & analytics dashboards",
-    ],
-    tags: ["Finance", "Enterprise", "Team Project"],
-    caseStudyLink: "#nooncapital",
-  },
-  {
-    title: "Gidaje 360",
-    context: "Property Management System",
-    description:
-      "Part of a team that developed a property management system for tracking assets, tenants, and real estate operations.",
-    highlights: [
-      "Enterprise-grade property management",
-      "Tenant & lease tracking",
-      "Collaboration with backend team",
-      "Real-time reporting",
+      "Team-based development & collaboration",
+      "Property listings and management workflows",
+      "Agent, landlord, and tenant structure",
+      "Business-oriented system design",
     ],
     tags: ["Real Estate", "Team Project", "Enterprise"],
-    caseStudyLink: "#gidaje360",
+    caseStudyLink: "#naijahomepro",
   },
   {
-    title: "Mobile Web School",
-    context: "Online Learning System",
+    title: "Patient Records Management System",
+    context: "Healthcare Information System",
     description:
-      "Built an e-learning platform supporting course management, assessments, and user progress tracking.",
+      "Developed a web-based patient records management system aimed at helping small healthcare facilities organize and access patient information more efficiently.",
     highlights: [
-      "Course management & tracking",
-      "Team collaboration",
-      "Responsive and mobile-friendly",
-      "Student progress analytics",
+      "Patient registration and record management",
+      "Structured medical history storage",
+      "Role-based access for staff",
+      "Focus on data organization and usability",
     ],
-    tags: ["Education", "Team Project", "Enterprise"],
-    caseStudyLink: "#mobilewebschool",
+    tags: ["Healthcare", "Information System", "Web Application"],
+  },
+
+  /* =======================
+     CLIENT PORTFOLIO WEBSITES
+  ======================= */
+  {
+    title: "Janiba Ginger Ltd",
+    context: "Agro-Allied Business Website",
+    description:
+      "Designed and developed a professional business website for an agro-allied company specializing in ginger production and processing, with a custom product ordering experience.",
+    highlights: [
+      "Product showcase and business branding",
+      "Cart-style modal for product selection",
+      "Order submission via WhatsApp integration",
+      "Mobile-first and responsive design",
+    ],
+    tags: ["Client Project", "Agro-Allied", "Business Website"],
+    caseStudyLink: "https://janibaginger.com/",
+  },
+  {
+    title: "Noon Capital and Finance Ltd",
+    context: "Financial Services Portfolio Website",
+    description:
+      "Built a clean, professional portfolio website for a financial services firm to communicate their fund management and financial planning offerings.",
+    highlights: [
+      "Clear service and brand positioning",
+      "Professional financial content structure",
+      "Responsive, modern UI",
+      "Client-focused information architecture",
+    ],
+    tags: ["Client Project", "Finance", "Portfolio Website"],
+    caseStudyLink: "https://www.nooncapitalandfinance.com/",
+  },
+  {
+    title: "Global Stallion Integrated Services Nigeria Ltd",
+    context: "Corporate Business Website",
+    description:
+      "Developed a corporate website for a diversified business services company to establish online presence and communicate their service offerings clearly.",
+    highlights: [
+      "Corporate branding and layout",
+      "Service-focused content structure",
+      "Responsive and accessible design",
+      "Clear call-to-action flow",
+    ],
+    tags: ["Client Project", "Corporate", "Business Website"],
+    caseStudyLink: "https://gsisnl.com/",
+  },
+
+  /* =======================
+     MINI / PERSONAL PROJECTS
+  ======================= */
+  {
+    title: "Gidaje360",
+    context: "Property Management App",
+    description:
+      "Built a property management system. A landlord centered property listings workflow.",
+    highlights: [
+      "Property listings",
+      "Landlord, agent, and tenant structure",
+      "Business-oriented system design",
+    ],
+    tags: ["Real Estate", "Team Project", "Enterprise"],
+    caseStudyLink: "https://gidaje360.vercel.app",
+  },
+  {
+    title: "AdamuCreates – Developers Quiz Game",
+    context: "Personal Project",
+    description:
+      "A quiz-based web application designed to help developers test and improve their programming knowledge in an interactive way.",
+    highlights: [
+      "Dynamic question handling",
+      "Score tracking and feedback",
+      "Clean UI and smooth interactions",
+      "Built for learning and fun",
+    ],
+    tags: ["Personal Project", "JavaScript", "Learning Tool"],
+    caseStudyLink: "https://adamulab-js-mini-projects.netlify.app/quiz-app/",
+  },
+  {
+    title: "Weather App",
+    context: "Mini Project",
+    description:
+      "A simple weather application that fetches real-time weather data based on user location or search input.",
+    highlights: [
+      "API integration",
+      "Search-based weather lookup",
+      "Clean and minimal UI",
+      "Error and loading state handling",
+    ],
+    tags: ["Personal Project", "API", "JavaScript"],
+    caseStudyLink: "https://adamulab-js-mini-projects.netlify.app/weather/",
+  },
+  {
+    title: "To-Do List App",
+    context: "Mini Project",
+    description:
+      "A task management application focused on simplicity, helping users organize daily tasks efficiently.",
+    highlights: [
+      "Add, update, and delete tasks",
+      "State management fundamentals",
+      "Persistent data handling",
+      "User-friendly interface",
+    ],
+    tags: ["Personal Project", "Productivity", "JavaScript"],
+    caseStudyLink: "https://adamulab-js-mini-projects.netlify.app/todo-list/",
   },
 ];
 

@@ -54,8 +54,8 @@ export default function Contact() {
         <ContactCard
           icon={<Twitter size={24} />}
           title="X (Twitter)"
-          text="@adamucreates"
-          link="https://x.com/adamucreates"
+          text="@adamucreatess"
+          link="https://x.com/adamucreatess"
         />
         <ContactCard
           icon={<Instagram size={24} />}

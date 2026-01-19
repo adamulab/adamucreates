@@ -23,7 +23,7 @@ export default function HireMe() {
       </motion.div>
 
       {/* Services */}
-      <div className="mt-16 grid md:grid-cols-3 gap-6">
+      <div className="mt-16 grid md:grid-cols-2 gap-6">
         <ServiceCard
           icon={<Code2 size={28} />}
           title="Software Development"
@@ -57,6 +57,18 @@ export default function HireMe() {
             "Educational tutorials",
             "Technical writing",
             "Content strategy",
+          ]}
+        />
+
+        <ServiceCard
+          icon={<Layers size={28} />}
+          title="Website Management & Maintenance"
+          description="Supporting existing websites and systems by improving stability, fixing issues, and making gradual, thoughtful improvements."
+          points={[
+            "Ongoing website updates & monitoring",
+            "Bug fixes and performance improvements",
+            "Walking through and understanding legacy codebases",
+            "Incremental refactoring and cleanup",
           ]}
         />
       </div>

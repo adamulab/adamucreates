@@ -31,7 +31,7 @@ export default function Contact() {
         <ContactCard
           icon={<Mail size={24} />}
           title="Email"
-          text="ingo@adamucreates.online"
+          text="info@adamucreates.online"
           link="mailto:adamuabu@gmail.com"
         />
         <ContactCard

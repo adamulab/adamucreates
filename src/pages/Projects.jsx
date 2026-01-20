@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Users, Layers, TrendingUp, ExternalLink } from "lucide-react";
+import { Users, User, Layers, TrendingUp, ExternalLink } from "lucide-react";
 import CaseStudyModal from "../components/CaseStudyModal";
 import { CASE_STUDY_STATUS } from "../data/caseStudyStatusConfig";
 
@@ -10,6 +10,7 @@ const projects = [
   ======================= */
   {
     title: "Enterprise Inventory & Payment System",
+    collaboration: "team",
     context: "Team-based enterprise application",
     status: "in-progress",
     caseStudyStatus: "testing",
@@ -25,6 +26,7 @@ const projects = [
   },
   {
     title: "NaijaHomePro",
+    collaboration: "team",
     context: "Real Estate Management System (Team Project)",
     status: "in-progress",
     caseStudyStatus: "development",
@@ -40,6 +42,7 @@ const projects = [
   },
   {
     title: "Patient Records Management System",
+    collaboration: "team",
     context: "Healthcare Information System",
     status: "in-progress",
     caseStudyStatus: "requirements",
@@ -59,6 +62,7 @@ const projects = [
   ======================= */
   {
     title: "Janiba Ginger Ltd",
+    collaboration: "solo",
     context: "Agro-Allied Business Website",
     status: "completed",
     description:
@@ -74,6 +78,7 @@ const projects = [
   },
   {
     title: "Global Stallion Integrated Services Nigeria Ltd",
+    collaboration: "solo",
     context: "Corporate Business Website",
     status: "completed",
     description:
@@ -89,6 +94,7 @@ const projects = [
   },
   {
     title: "Noon Capital and Finance Ltd",
+    collaboration: "solo",
     context: "Financial Services Portfolio Website",
     status: "completed",
     description:
@@ -108,6 +114,7 @@ const projects = [
   ======================= */
   {
     title: "Gidaje360",
+    collaboration: "team",
     context: "Property Management App",
     status: "completed",
     description:
@@ -122,6 +129,7 @@ const projects = [
   },
   {
     title: "AdamuCreates – Developers Quiz Game",
+    collaboration: "solo",
     context: "Personal Project",
     status: "completed",
     description:
@@ -137,6 +145,7 @@ const projects = [
   },
   {
     title: "Weather App",
+    collaboration: "solo",
     context: "Mini Project",
     status: "completed",
     description:
@@ -152,6 +161,7 @@ const projects = [
   },
   {
     title: "To-Do List App",
+    collaboration: "solo",
     context: "Mini Project",
     status: "completed",
     description:
@@ -235,7 +245,17 @@ function ProjectCard({ project, index }) {
           {/* Meta */}
           <div className="flex flex-col gap-4 min-w-[220px]">
             <div className="flex items-center gap-3 text-sm text-slate-300">
-              <Users size={18} className="text-indigo-400" /> Team Collaboration
+              {project.collaboration === "team" ? (
+                <>
+                  <Users size={18} className="text-indigo-400" />
+                  Team Collaboration
+                </>
+              ) : (
+                <>
+                  <User size={18} className="text-indigo-400" />
+                  Solo Development
+                </>
+              )}
             </div>
             <div className="flex items-center gap-3 text-sm text-slate-300">
               <TrendingUp size={18} className="text-indigo-400" /> Business
